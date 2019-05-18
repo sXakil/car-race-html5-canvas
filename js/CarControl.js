@@ -71,11 +71,3 @@ class Car {
 }
 let car1 = new Car();
 let car2 = new Car();
-/**
- * echo "# car-race-html5-canvas" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/sXakil/car-race-html5-canvas.git
-git push -u origin master
- */

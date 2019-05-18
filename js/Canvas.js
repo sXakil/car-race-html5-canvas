@@ -3,12 +3,12 @@ window.onload = function() {
 	context = canvas.getContext('2d');
 	canvas.addEventListener('mousemove', getMouseCoordinate);
 	document.addEventListener('keydown', function (evt) {
-		car1.onKeyPressed(evt, 37, 39, 38, 40)
-		car2.onKeyPressed(evt, 65, 68, 87, 83)
+		car1.onKeyPressed(evt, ...car1Controls)
+		car2.onKeyPressed(evt, ...car2Controls)
 	});
 	document.addEventListener('keyup', function (evt) {
-		car1.onKeyReleased(evt, 37, 39, 38, 40)
-		car2.onKeyReleased(evt, 65, 68, 87, 83)
+		car1.onKeyReleased(evt, ...car1Controls)
+		car2.onKeyReleased(evt, ...car2Controls)
 	});
 
 	images.forEach((image) => {
