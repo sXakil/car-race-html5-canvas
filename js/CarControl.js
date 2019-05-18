@@ -1,4 +1,5 @@
 class Car {
+	/** The constructor @params are the controls key codes of the car object */
 	constructor(left, right, forward, reverse) {
 		this.carX = carX;
 		this.carY = carY;
@@ -13,6 +14,10 @@ class Car {
 		this.forward = forward;
 		this.reverse = reverse;
 	}
+
+	/** 
+	 * @onKeyPressed and @onKeyReleased method updates the flag to move the car
+	 */
 	onKeyPressed(evt) {
 		if (evt.keyCode === this.left) {
 			this.carTurnLeft = true;
@@ -41,6 +46,8 @@ class Car {
 			this.carReverse = false;
 		}
 	}
+
+	/** Reposition the car back to starting point */
 	reset(xx = 0, yy = 0) {
 		let i = 0;
 		tracks.forEach((track, index) => {
@@ -53,6 +60,8 @@ class Car {
 		this.carAngle = Math.PI / 2;
 		this.carSpeed = 0;
 	}
+
+	/** Move the car if flags are true */
 	move() {
 		this.carSpeed *= FRICTION_RATE_MULTIPLIER;
 		if (Math.abs(this.carSpeed) > 0.05) {
@@ -73,5 +82,6 @@ class Car {
 		this.carY += Math.sin(this.carAngle) * this.carSpeed;
 	}
 }
+/** Instantiating the two cars */
 let carOne = new Car(...carOneControls);
 let carTwo = new Car(...carTwoControls);

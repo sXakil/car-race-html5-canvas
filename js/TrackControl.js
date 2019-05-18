@@ -1,6 +1,6 @@
+/** Generate the entire track grid from the tracks array */
 function generateTracks() {
 	let i = 0;
-
 	tracks.forEach((track, index) => {
 		if (index !== 0 && index % TRACK_COLS === 0) i++;
 		if (track === TRACK_WALL) {
@@ -17,6 +17,7 @@ function generateTracks() {
 	});
 }
 
+/** Checks the collision between cars and obstacles */
 function carTrackCollisionControl(thisCar) {
 	let carTrackCol = Math.floor(thisCar.carX / TRACK_WIDTH);
 	let carTrackRow = Math.floor(thisCar.carY / TRACK_HEIGHT);
@@ -28,13 +29,11 @@ function carTrackCollisionControl(thisCar) {
 		}
 	}
 }
+
+/** Get the block index from track grid given the column and row position */
 function isTrackAtColRow(col, row) {
 	if (col >= 0 && col < TRACK_COLS && row >= 0 && row < TRACK_ROWS) {
-		let trackIndex = getTrackIndex(col, row);
+		let trackIndex = TRACK_COLS * row + col;
 		return tracks[trackIndex] !== TRACK_ROAD;
 	} else return false;
-}
-
-function getTrackIndex(col, row) {
-	return TRACK_COLS * row + col;
 }

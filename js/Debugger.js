@@ -1,3 +1,4 @@
+/** Get the mouse coordinates */
 function getMouseCoordinate(evt) {
 	let rect = canvas.getBoundingClientRect();
 	let root = document.documentElement;
