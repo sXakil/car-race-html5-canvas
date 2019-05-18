@@ -11,8 +11,6 @@ window.onload = function() {
 		carTwo.onKeyReleased(evt, ...carTwoControls)
 	});
 
-
-
 	for (let image in images) {
 		let img = images[image].img
 		let src = images[image].src
@@ -20,11 +18,6 @@ window.onload = function() {
 		img.src = "images/" + src
 	}
 
-	// images.forEach((image) => {
-	// 	let img = image.img;
-	// 	img.onload = imageLoaded;
-	// 	img.src = "images/" + image.src;
-	// });
 	carOne.reset(-60);
 	carTwo.reset(-25);
 	animate();

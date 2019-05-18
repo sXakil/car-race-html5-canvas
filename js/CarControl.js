@@ -1,5 +1,5 @@
 class Car {
-	constructor() {
+	constructor(left, right, forward, reverse) {
 		this.carX = carX;
 		this.carY = carY;
 		this.carAngle = carAngle;
@@ -8,32 +8,36 @@ class Car {
 		this.carTurnRight = carTurnRight;
 		this.carGas = carGas;
 		this.carReverse = carReverse;
+		this.left = left;
+		this.right = right;
+		this.forward = forward;
+		this.reverse = reverse;
 	}
-	onKeyPressed(evt, left, right, up, down) {
-		if (evt.keyCode === left) {
+	onKeyPressed(evt) {
+		if (evt.keyCode === this.left) {
 			this.carTurnLeft = true;
 		}
-		if (evt.keyCode === right) {
+		if (evt.keyCode === this.right) {
 			this.carTurnRight = true;
 		}
-		if (evt.keyCode === down) {
+		if (evt.keyCode === this.reverse) {
 			this.carGas = true;
 		}
-		if (evt.keyCode === up) {
+		if (evt.keyCode === this.forward) {
 			this.carReverse = true;
 		}
 	}
-	onKeyReleased(evt, left, right, up, down) {
-		if (evt.keyCode === left) {
+	onKeyReleased(evt) {
+		if (evt.keyCode === this.left) {
 			this.carTurnLeft = false;
 		}
-		if (evt.keyCode === right) {
+		if (evt.keyCode === this.right) {
 			this.carTurnRight = false;
 		}
-		if (evt.keyCode === down) {
+		if (evt.keyCode === this.reverse) {
 			this.carGas = false;
 		}
-		if (evt.keyCode === up) {
+		if (evt.keyCode === this.forward) {
 			this.carReverse = false;
 		}
 	}
@@ -69,5 +73,5 @@ class Car {
 		this.carY += Math.sin(this.carAngle) * this.carSpeed;
 	}
 }
-let carOne = new Car();
-let carTwo = new Car();
+let carOne = new Car(...carOneControls);
+let carTwo = new Car(...carTwoControls);
