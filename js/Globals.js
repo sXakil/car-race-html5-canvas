@@ -7,11 +7,10 @@ let carAngle = 0;
 let carSpeed = 5;
 let mouseX = 400;
 let mouseY = 300;
-const TRACK_PATH = 0;
+const TRACK_ROAD = 0;
 const TRACK_WALL = 1;
 const TRACK_START = 2;
-const TRACK2_START = 5;
-const TRACK_FIELD = 3;
+const TRACK_GRASS = 3;
 const TRACK_FINISH = 4;
 const TRACK_FLAG = 6
 const TRACK_COLS = 40;
@@ -20,23 +19,24 @@ const TRACK_WIDTH = 25;
 const TRACK_HEIGHT = 25;
 const TRACK_GAP = 0;
 let tracks = new Array(TRACK_COLS * TRACK_ROWS);
-let images = [
-	{ img: new Image(), src: 'car-min.png' },
-	{ img: new Image(), src: 'wall_tile-min.png' },
-	{ img: new Image(), src: 'grass_tile-min.png' },
-	{ img: new Image(), src: 'road_tile-min.png' },
-	{ img: new Image(), src: 'finish_tile-min.png' },
-	{ img: new Image(), src: 'flag_tile-min.png' },
-	{ img: new Image(), src: 'car2-min.png' },
-];
-let imageYetToLoad = images.length;
+let images = {
+	carOne: { img: new Image(), src: 'carOne-min.png', },
+	carTwo: { img: new Image(), src: 'carTwo-min.png',},
+	wallTile: { img: new Image(),	src: 'wallTile-min.png', },
+	roadTile: { img: new Image(), src: 'roadTile-min.png', },
+	grassTile: { img: new Image(), src: 'grassTile-min.png', },
+	flagTile: { img: new Image(), src: 'flagTile-min.png', },
+	finishTile: { img: new Image(), src: 'finishTile-min.png', },
+}
+
+let imageYetToLoad = Object.keys(images).length;
 let carGas = false;
 let carReverse = false;
 let carTurnLeft = false;
 let carTurnRight = false;
 const TURN_RATE = 0.04;
 const ACCELERATION_RATE = 0.25;
-const FRICTION_RATE_MULTIPLIER = 0.98
+const FRICTION_RATE_MULTIPLIER = 0.98;
 
 tracks = [
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -71,5 +71,5 @@ tracks = [
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ]
 
-const car1Controls = [37, 39, 38, 40]
-const car2Controls = [65, 68, 87, 83]
+const carOneControls = [37, 39, 38, 40]
+const carTwoControls = [65, 68, 87, 83]

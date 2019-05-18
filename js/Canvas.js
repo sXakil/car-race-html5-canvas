@@ -3,21 +3,30 @@ window.onload = function() {
 	context = canvas.getContext('2d');
 	canvas.addEventListener('mousemove', getMouseCoordinate);
 	document.addEventListener('keydown', function (evt) {
-		car1.onKeyPressed(evt, ...car1Controls)
-		car2.onKeyPressed(evt, ...car2Controls)
+		carOne.onKeyPressed(evt, ...carOneControls)
+		carTwo.onKeyPressed(evt, ...carTwoControls)
 	});
 	document.addEventListener('keyup', function (evt) {
-		car1.onKeyReleased(evt, ...car1Controls)
-		car2.onKeyReleased(evt, ...car2Controls)
+		carOne.onKeyReleased(evt, ...carOneControls)
+		carTwo.onKeyReleased(evt, ...carTwoControls)
 	});
 
-	images.forEach((image) => {
-		let img = image.img;
+
+
+	for (let image in images) {
+		let img = images[image].img
+		let src = images[image].src
 		img.onload = imageLoaded;
-		img.src = "images/" + image.src;
-	});
-	car1.reset(-60);
-	car2.reset(-25);
+		img.src = "images/" + src
+	}
+
+	// images.forEach((image) => {
+	// 	let img = image.img;
+	// 	img.onload = imageLoaded;
+	// 	img.src = "images/" + image.src;
+	// });
+	carOne.reset(-60);
+	carTwo.reset(-25);
 	animate();
 };
 function imageLoaded() {

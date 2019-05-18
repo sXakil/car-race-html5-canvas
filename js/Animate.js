@@ -12,12 +12,11 @@ function getUpdate() {
 /* Draws all the shapes */
 function draw() {
 	if (imageYetToLoad === 0) {
-		drawRotatingBitmap(images[0].img, car1.carX, car1.carY, car1.carAngle);
-		drawRotatingBitmap(images[6].img, car2.carX, car2.carY, car2.carAngle);
+		drawRotatingBitmap(images["carOne"].img, carOne.carX, carOne.carY, carOne.carAngle);
+		drawRotatingBitmap(images["carTwo"].img, carTwo.carX, carTwo.carY, carTwo.carAngle);
 	}
-	car1.move();
-	car2.move();
-	carTrackCollisionControl(car1);
-	carTrackCollisionControl(car2);
-	
+	carOne.move();
+	carTwo.move();
+	carTrackCollisionControl(carOne);
+	carTrackCollisionControl(carTwo);
 }

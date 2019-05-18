@@ -69,5 +69,5 @@ class Car {
 		this.carY += Math.sin(this.carAngle) * this.carSpeed;
 	}
 }
-let car1 = new Car();
-let car2 = new Car();
+let carOne = new Car();
+let carTwo = new Car();
