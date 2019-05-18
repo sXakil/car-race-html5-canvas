@@ -25,6 +25,13 @@ function generateTracks() {
 				TRACK_HEIGHT * i,
 			);
 		}
+			else if (track === TRACK_FLAG) {
+			drawBitmap(
+				images[5].img,
+				TRACK_WIDTH * (index % TRACK_COLS),
+				TRACK_HEIGHT * i,
+			);
+		}
 		else if (track === TRACK_PATH || TRACK_START) {
 			drawBitmap(
 				images[3].img,
@@ -58,7 +65,7 @@ function isTrackAtColRow(col, row) {
 	if (col >= 0 && col < TRACK_COLS &&
 		row >= 0 && row < TRACK_ROWS) {
 		let trackIndex = getTrackIndex(col, row)
-		return (tracks[trackIndex] === 1)
+		return (tracks[trackIndex] !== TRACK_PATH)
 	}
 	else return false;
 }
